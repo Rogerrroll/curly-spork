@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="theme-color" content="#392b63">
+  <title>典之的21岁像素散步</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app">
+    <canvas id="game" width="360" height="640" aria-label="典之的21岁像素散步游戏"></canvas>
+
+    <button id="soundButton" class="icon-button" aria-label="切换声音">♫</button>
+
+    <section id="startScreen" class="screen active">
+      <div class="pixel-window hero-window">
+        <p class="eyebrow">2026.07.26 · PLAYER 21</p>
+        <h1>典之的<br><span>21岁像素散步</span></h1>
+        <div class="avatar-preview" aria-hidden="true">🎨</div>
+        <p>特别任务：沿着回忆小路，收集散落的快乐碎片，抵达未来许愿站。</p>
+        <button id="startButton" class="pixel-button primary">开始散步</button>
+        <p class="tiny">推荐竖屏游玩 · 音乐会在点击后响起</p>
+      </div>
+    </section>
+
+    <section id="memoryModal" class="screen modal-screen" aria-modal="true" role="dialog">
+      <div class="pixel-window memory-window">
+        <p id="memoryCount" class="eyebrow">回忆碎片</p>
+        <h2 id="memoryTitle">回忆标题</h2>
+        <div class="photo-frame">
+          <img id="memoryPhoto" alt="回忆照片">
+          <div id="photoPlaceholder" class="photo-placeholder"><span>▧</span><br>照片待投放</div>
+        </div>
+        <p id="memoryText"></p>
+        <button id="memoryClose" class="pixel-button primary">收进口袋</button>
+      </div>
+    </section>
+
+    <section id="endingScreen" class="screen ending-screen">
+      <div class="stars" aria-hidden="true"></div>
+      <div class="ending-content">
+        <div id="cake" class="cake" aria-label="21岁生日蛋糕"></div>
+        <p class="eyebrow">MISSION COMPLETE</p>
+        <h2>典之，21岁生日快乐！</h2>
+        <p>愿你一直有画画的灵感、散步的闲心，也有奔向喜欢方向的勇气。</p>
+        <p>愿下一段旅程，继续热烈、自由、闪闪发光。</p>
+        <p id="endingStats" class="stats"></p>
+        <div class="ending-actions">
+          <button id="galleryButton" class="pixel-button">回看照片</button>
+          <button id="restartButton" class="pixel-button primary">重新散步</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="galleryScreen" class="screen gallery-screen">
+      <div class="gallery-header">
+        <button id="galleryBack" class="pixel-button small">← 返回</button>
+        <h2>回忆相册</h2>
+      </div>
+      <div id="galleryGrid" class="gallery-grid"></div>
+    </section>
+
+    <div id="hud" class="hud hidden">
+      <div><span id="sceneName">三中 · 初见站</span><small id="sceneProgress">1 / 4</small></div>
+      <div class="collect-counter">✦ <span id="collectCount">0</span>/8</div>
+    </div>
+
+    <div id="toast" class="toast" role="status"></div>
+
+    <nav id="controls" class="controls hidden" aria-label="游戏控制">
+      <div class="direction-controls">
+        <button data-control="left" aria-label="向左">◀</button>
+        <button data-control="right" aria-label="向右">▶</button>
+      </div>
+      <button data-control="jump" class="jump-button" aria-label="跳跃">↑<small>跳</small></button>
+    </nav>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
